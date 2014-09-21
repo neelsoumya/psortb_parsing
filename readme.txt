@@ -1,5 +1,7 @@
 readme
 
+Scripts to parse output from PSortB bioinformatics package.
+
 Usage: nohup ./main_psortb_shellparse_v2.sh
 OR
 nohup ./main_psortb_shellparse.sh
