@@ -1,5 +1,9 @@
 readme
 
+Usage: nohup ./main_psortb_shellparse_v2.sh
+OR
+nohup ./main_psortb_shellparse.sh
+
 1) psortb_parser_v1.py
 	Python script to parse PSortB output (see files 3496_psorta, 3496_psortn, 3496_psortp)
 	Usage: 
