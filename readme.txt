@@ -19,5 +19,15 @@ readme
 	It then calls the Python parser to parse that temporary file.
 	Finally, it creates a consolidated output file that has data from all partitions.
 
-4) Sample output files from PSortB
+4) main_psortb_shellparse_v2.sh
+	Shell script similar to main_psortb_shellparse.sh
+	Only difference is it produces a summary final flag that is Y for Extracellular and N for not.
+	It calls the python script psortb_parser_v3.py
+
+5) psortb_parser_v3.py
+	Similar to psortb_parser_v2.p
+	Only difference is it produces a summary final flag that is Y for Extracellular and N for not.
+	At least one of n/p/a has Extracellular AND each of n/p/a has only Unknown or Extracellular (but nothing like Cytoplasm etc).
+
+6) Sample output files from PSortB
 	 3496_psorta, 3496_psortn, 3496_psortp,2223_psorta, 2223_psortn, 2223_psortp
