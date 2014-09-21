@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #################################################################
-# Name - main_psortb_shellparse.sh
+# Name - main_psortb_shellparse_v2.sh
 # Creation Date - 20th September 2014
 # Author: Soumya Banerjee
 # Website: https://sites.google.com/site/neelsoumya/
@@ -19,6 +19,7 @@
 #   This shell script repeatedly iterates over many files of the type
 #   997_signalp_neg, 997_signalp_pos and repeatedly call the program signalp_parse_v7_generic.py
 #   Finally it cleans up temporary files and produces a consolidated output file
+#   Has logic to output FINAL flag (Y for Extracellular protein, N for not). 
 #
 #   Example input format: 997_signalp_neg
 #
@@ -35,7 +36,7 @@
 #	1003    PROKKA_00004    0.096   N       N       0.108   N
 #
 #
-# Example - nohup ./main_psortb_shellparse.sh
+# Example - nohup ./main_psortb_shellparse_v2.sh
 #
 # License - GNU GPL
 #
