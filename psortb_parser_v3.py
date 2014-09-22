@@ -10,6 +10,12 @@ import csv
 # Description:
 #   Parse output from PSortB bioinformatics package
 #   Called from main_psortb_shellparse.sh
+#
+#   PSortB produces 3 output files for each partition. For example, for partition 3496, three files are produced: 
+#   3496_psorta (for archaea), 3496_psortp (for Gram +ve bacteria) and 3496_psortn (for Gram -ve bacteria).
+#   This distribution has shell scripts and python programs to combine output from PSortB and generate an output
+#   file that has a list of partitions and proteins/peptides that are likely to be secreted extra-cellularly. 	
+
 #   Example input format (pasted files from archaea, Gram -ve and Gram +ve:
 #	 SeqID   Localization    Score   SeqID   Localization    Score   SeqID   Localization    Score
 # 	PROKKA_00001 hypothetical protein       Cytoplasmic     7.50    PROKKA_00001 hypothetical protein       Unknown 2.00    PROKKA_00001 hypothetical protein       Unknown 2.50

@@ -12,6 +12,11 @@
 #   Complications: SignalP does not produce tab delimited or comma separated output
 #   Repeatedly calls from signalp_parse_v7_generic.py
 #
+#   PSortB produces 3 output files for each partition. For example, for partition 3496, three files are produced: 
+#   3496_psorta (for archaea), 3496_psortp (for Gram +ve bacteria) and 3496_psortn (for Gram -ve bacteria).
+#   This distribution has shell scripts and python programs to combine output from PSortB and generate an output
+#   file that has a list of partitions and proteins/peptides that are likely to be secreted extra-cellularly. 	
+#
 #   Assumes that SignalP produces a bunch of files of the form 997_signalp_neg, 997_signalp_pos
 #   where neg is for Gram negative bacteria and pos is for Gram positive bacteria.
 #   This program combines data from both files to produce a single output variable that is the logical OR
@@ -20,19 +25,18 @@
 #   997_signalp_neg, 997_signalp_pos and repeatedly call the program signalp_parse_v7_generic.py
 #   Finally it cleans up temporary files and produces a consolidated output file
 #
-#   Example input format: 997_signalp_neg
-#
-#   name                     Cmax  pos  Ymax  pos  Smax  pos  Smean   D     ?  Dmaxcut    Networks-used     
-#   PROKKA_00001               0.104  26  0.123  11  0.186   3  0.159   0.136 N  0.510      SignalP-TM       
-#   PROKKA_00002               0.111  28  0.197  12  0.459   9  0.391   0.288 N  0.570      SignalP-noTM     
+#   Example input format: 3496_psorta
+#	   SeqID					Localization		Score
+#	   PROKKA_00001 hypothetical protein		Cytoplasmic		7.50
+#	   PROKKA_00002 Conjugal transfer protein TrbE	CytoplasmicMembrane	10.00
+#	   PROKKA_00003 hypothetical protein		Cytoplasmic		7.50
 #
 #
 # Output - FINAL_SignalP_parsed_file_secreted
-#	Partition_number        Protein_id      Dthreshold_neg  Signalp_neg     Dthreshold_pos  Signalp_pos     Signalp_output_FINAL
-#	1003    PROKKA_00001    0.136   N       N       0.122   N
-#	1003    PROKKA_00002    0.288   N       N       0.270   N
-#	1003    PROKKA_00003    0.159   N       N       0.141   N
-#	1003    PROKKA_00004    0.096   N       N       0.108   N
+#	Partition_number  Protein_id      Protein_name    Localization_a  Score_a Localization_n  Score_n Localization_p  Score_p
+#	1003    	  PROKKA_00001    Succinate dehydrogenase hydrophobic membrane anchor subunit     CytoplasmicMembrane     10.00   CytoplasmicMembrane     10.00   CytoplasmicMembrane     9.99
+#	1003              PROKKA_00002    hypothetical protein    Unknown 2.50    Unknown 2.00    Unknown 2.50
+#	1003              PROKKA_00003    hypothetical protein    Cytoplasmic     7.50    Unknown 2.00    Cytoplasmic     7.50
 #
 #
 # Example - nohup ./main_psortb_shellparse.sh
